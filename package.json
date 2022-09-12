@@ -1,0 +1,28 @@
+{
+  "name": "@jimdo/components-stats",
+  "version": "1.0.0",
+  "description": "Collect stats about ui components usage across the github org",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "rimraf build && npx tsc && node build/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .ts ."
+  },
+  "author": {
+    "name": "Stefania Mellai"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^19.0.4",
+    "react-scanner": "^1.0.3",
+    "shelljs": "^0.8.5"
+  },
+  "devDependencies": {
+    "@jimdo/eslint-config-jimdo": "^1.1.0",
+    "@jimdo/prettier-config": "^1.1.0",
+    "@types/node": "^18.7.16",
+    "eslint": "^8.23.0",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.3"
+  }
+}

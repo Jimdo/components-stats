@@ -1,0 +1,8 @@
+node_modules
+reports_by_repo
+repositories
+config.js
+react-scanner.config.js
+package-lock.json
+build
+pkgAdoption.json
