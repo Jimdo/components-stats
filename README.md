@@ -27,6 +27,8 @@ $ > npm start
 
 > :warning: GitHub API [are rate limited](https://docs.github.com/en/rest/overview/resources-in-the-rest-api#rate-limiting), we need to find a way to avoid errors because of this.
 
+> :warning: The script will clone all the eligible repositories locally and use them as source for [react-scanner](https://github.com/moroshko/react-scanner).
+
 ## Results
 
 The script outputs:
