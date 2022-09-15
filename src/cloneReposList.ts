@@ -1,5 +1,6 @@
 var shell = require('shelljs');
 const fs = require('node:fs');
+import { RelevantRepo } from 'package-adoption';
 
 export const cloneReposList = (reposLocalDir: string, repos: RelevantRepo[], org: string) => {
   if (fs.existsSync(reposLocalDir)) {
@@ -9,23 +10,24 @@ export const cloneReposList = (reposLocalDir: string, repos: RelevantRepo[], org
   }
   shell.cd(reposLocalDir);
 
-  console.log('Cloning Relevant FE repositories...');
-
   for (let i = 0; i < repos.length; i++) {
     const repo = repos[i];
     const repoURL = `git@github.com:${org}/${repo.name}.git`;
 
-    console.log('Cloning %s into %s', `${org}/${repo.name}`, reposLocalDir);
     const localRepoDir = `${reposLocalDir}/${repo.name}`;
     if (fs.existsSync(localRepoDir)) {
-      // FIXME maybe we could clone only new repos and just update what we already have?
-      /* shell.cd(localRepoDir);
-        if (shell.exec(`git pull origin/main`).code !== 0) {
-          console.error('Git pull failed for repo: %s', repo.name);
-        } */
+      console.log('[components-stats] - %s directory already exists, updating it...', `${org}/${repo.name}`);
+
+      shell.cd(localRepoDir);
+      if (shell.exec(`git pull`).code !== 0) {
+        console.error('Git pull failed for repo: %s', repo.name);
+      }
+      shell.cd('..');
     } else {
+      console.log('[components-stats] - Cloning %s...', `${org}/${repo.name}`);
+
       if (shell.exec(`git clone ${repoURL}`).code !== 0) {
-        console.error('Git clone failed for repo: %s', repo.name);
+        console.error('[components-stats] - Git clone failed for repo: %s', repo.name);
       }
     }
   }

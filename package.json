@@ -13,7 +13,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "@octokit/rest": "^19.0.4",
+    "package-adoption": "1.1.1",
     "react-scanner": "^1.0.3",
     "shelljs": "^0.8.5"
   },
