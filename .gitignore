@@ -1,5 +1,5 @@
 node_modules
-reports_by_repo
+reports_by_repo*
 repositories
 config.js
 react-scanner.config.js

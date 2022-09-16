@@ -11,9 +11,10 @@ const { cloneReposList } = require('./cloneReposList');
 const { ORG, PKG_NAME, GH_AUTHTOKEN, DAYS_UNTIL_STALE, COMPONENTS } = require('../config');
 
 const currentLocation = cwd();
+const stanitizedPkgName = PKG_NAME.replaceAll('/', '_');
 const reposLocalDir = path.join(currentLocation, 'repositories');
 const pkgAdoptionReport = path.join(currentLocation, 'pkgAdoption.json');
-const reportsOutputDir = path.join(currentLocation, 'reports_by_repo');
+const reportsOutputDir = path.join(currentLocation, `reports_by_repo-${stanitizedPkgName}`);
 const reactScannerConfig = path.join(currentLocation, 'react-scanner.config.js');
 
 (async () => {
@@ -31,7 +32,7 @@ const reactScannerConfig = path.join(currentLocation, 'react-scanner.config.js')
       const installationPath = repo.installationPath;
       const sourceDir = installationPath === 'root' ? repo.name : path.join(repo.name, installationPath);
       const baseReportFileName = `scanner-report_${repo.name}`; 
-      const reportFileName = installationPath === 'root' ? `${baseReportFileName}.json` : `${baseReportFileName}_${installationPath.replace('/', '_')}.json`;
+      const reportFileName = installationPath === 'root' ? `${baseReportFileName}.json` : `${baseReportFileName}_${installationPath.replaceAll('/', '_')}.json`;
       
       const scannerConfig = {
         crawlFrom: path.join(reposLocalDir, sourceDir),

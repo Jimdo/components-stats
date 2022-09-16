@@ -1,7 +1,7 @@
 {
   "name": "@jimdo/components-stats",
   "version": "1.0.0",
-  "description": "Collect stats about ui components usage across the github org",
+  "description": "Collect stats about ui components usage across the specified GitHub org",
   "main": "./src/index.js",
   "scripts": {
     "start": "rimraf build && npx tsc && node build/src/index.js",
