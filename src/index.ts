@@ -48,4 +48,6 @@ const reactScannerConfig = path.join(currentLocation, 'react-scanner.config.js')
       shell.exec(`npx react-scanner -c ${reactScannerConfig}`);
     }
   }
-})();
+})().catch(err => {
+  console.error(err);
+});

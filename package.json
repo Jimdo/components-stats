@@ -13,7 +13,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "package-adoption": "1.1.1",
+    "package-adoption": "^1.1.0",
     "react-scanner": "^1.0.3",
     "shelljs": "^0.8.5"
   },
