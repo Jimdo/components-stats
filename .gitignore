@@ -7,3 +7,5 @@ package-lock.json
 build
 pkgAdoption.json
 *yalc*
+.eslintcache
+coverage
