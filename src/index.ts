@@ -7,24 +7,24 @@ import { cwd } from 'process';
 import {
   getFilteredReposWithPackageForOrg,
   RelevantRepo,
-  Config,
+  InputParameters,
 } from 'package-adoption';
 import { cloneReposList } from './cloneReposList';
 
-interface LocalConfig extends Config {
-  COMPONENTS: any;
+interface LocalConfig extends InputParameters {
+  components: any;
 }
 
 const {
-  ORG,
-  PKG_NAME,
-  GH_AUTHTOKEN,
-  DAYS_UNTIL_STALE,
-  COMPONENTS,
+  org,
+  pkgName,
+  ghAuthToken,
+  daysUntilStale,
+  components,
 }: LocalConfig = require('../config');
 
 const currentLocation = cwd();
-const stanitizedPkgName = PKG_NAME.replaceAll('/', '_');
+const stanitizedPkgName = pkgName.replaceAll('/', '_');
 const reposLocalDir = path.join(currentLocation, 'repositories');
 const pkgAdoptionReport = path.join(currentLocation, 'pkgAdoption.json');
 const reportsOutputDir = path.join(
@@ -39,15 +39,15 @@ const reactScannerConfig = path.join(
 (async () => {
   const relevantRepos: RelevantRepo[] | undefined =
     await getFilteredReposWithPackageForOrg({
-      org: ORG,
-      daysUntilStale: DAYS_UNTIL_STALE,
-      ghAuthToken: GH_AUTHTOKEN,
-      pkgName: PKG_NAME,
+      org,
+      daysUntilStale,
+      ghAuthToken,
+      pkgName,
     });
   fs.writeFileSync(pkgAdoptionReport, JSON.stringify(relevantRepos));
 
   if (relevantRepos?.length) {
-    cloneReposList(reposLocalDir, relevantRepos, ORG);
+    cloneReposList(reposLocalDir, relevantRepos, org);
 
     console.log(
       '\n\n[components-stats] - Collect components usage for filtered repositories'
@@ -73,14 +73,14 @@ const reactScannerConfig = path.join(
       const scannerConfig = {
         crawlFrom: path.join(reposLocalDir, sourceDir),
         includeSubComponents: true,
-        importedFrom: PKG_NAME,
+        importedFrom: pkgName,
         processors: [
           [
             'count-components-and-props',
             { outputTo: path.join(reportsOutputDir, reportFileName) },
           ],
         ],
-        components: COMPONENTS,
+        components,
       };
 
       fs.writeFileSync(
