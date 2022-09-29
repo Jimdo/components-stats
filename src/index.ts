@@ -2,18 +2,19 @@
 
 import { exec, rm } from 'shelljs';
 import fs from 'fs';
-import path from 'path';
-import { cwd } from 'process';
 import {
   getFilteredReposWithPackageForOrg,
   RelevantRepo,
-  InputParameters,
 } from 'package-adoption';
 import { cloneReposList } from './cloneReposList';
-
-interface LocalConfig extends InputParameters {
-  components: any;
-}
+import { buildScannerConfig } from './buildScannerConfig';
+import {
+  PKG_ADOPTION_REPORT,
+  REACT_SCANNER_CONFIG,
+  REPORTS_OUTPUT_DIR_PREFIX,
+  REPOS_LOCAL_DIR,
+} from './constants';
+import { LocalConfig } from './types';
 
 const {
   org,
@@ -23,20 +24,16 @@ const {
   components,
 }: LocalConfig = require('../config');
 
-const currentLocation = cwd();
 const stanitizedPkgName = pkgName.replaceAll('/', '_');
-const reposLocalDir = path.join(currentLocation, 'repositories');
-const pkgAdoptionReport = path.join(currentLocation, 'pkgAdoption.json');
-const reportsOutputDir = path.join(
-  currentLocation,
-  `reports_by_repo-${stanitizedPkgName}`
-);
-const reactScannerConfig = path.join(
-  currentLocation,
-  'react-scanner.config.js'
-);
+const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;
 
 (async () => {
+  /* 
+    1. It is using the `getFilteredReposWithPackageForOrg` function to get a list of relevant repos.
+    2. It is cloning the relevant repos to a local directory.
+    3. It is using the `react-scanner` package to scan the relevant repos for components usage.
+    4. It is saving the results to a file. 
+  */
   const relevantRepos: RelevantRepo[] | undefined =
     await getFilteredReposWithPackageForOrg({
       org,
@@ -44,50 +41,32 @@ const reactScannerConfig = path.join(
       ghAuthToken,
       pkgName,
     });
-  fs.writeFileSync(pkgAdoptionReport, JSON.stringify(relevantRepos));
 
   if (relevantRepos?.length) {
-    cloneReposList(reposLocalDir, relevantRepos, org);
+    fs.writeFileSync(PKG_ADOPTION_REPORT, JSON.stringify(relevantRepos));
+
+    cloneReposList(REPOS_LOCAL_DIR, relevantRepos, org);
 
     console.log(
       '\n\n[components-stats] - Collect components usage for filtered repositories'
     );
 
     rm('-rf', `${reportsOutputDir}/*`);
+
     for (let i = 0; i < relevantRepos.length; i++) {
       const repo = relevantRepos[i];
-      const installationPath = repo.installationPath;
-      const sourceDir =
-        installationPath === 'root'
-          ? repo.name
-          : path.join(repo.name, installationPath);
-      const baseReportFileName = `scanner-report_${repo.name}`;
-      const reportFileName =
-        installationPath === 'root'
-          ? `${baseReportFileName}.json`
-          : `${baseReportFileName}_${installationPath.replaceAll(
-              '/',
-              '_'
-            )}.json`;
-
-      const scannerConfig = {
-        crawlFrom: path.join(reposLocalDir, sourceDir),
-        includeSubComponents: true,
-        importedFrom: pkgName,
-        processors: [
-          [
-            'count-components-and-props',
-            { outputTo: path.join(reportsOutputDir, reportFileName) },
-          ],
-        ],
-        components,
-      };
+      const scannerConfig = buildScannerConfig(
+        repo,
+        pkgName,
+        reportsOutputDir,
+        components
+      );
 
       fs.writeFileSync(
-        reactScannerConfig,
+        REACT_SCANNER_CONFIG,
         `module.exports = ${JSON.stringify(scannerConfig)}`
       );
-      exec(`npx react-scanner -c ${reactScannerConfig}`);
+      exec(`npx react-scanner -c ${REACT_SCANNER_CONFIG}`);
     }
   }
 })().catch(err => {
