@@ -7,7 +7,8 @@
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
 [![Semantic Release][semantic-release-img]][semantic-release-url]
 
-Collect usage statistics for any npm package exposing React UI components, across a GitHub organization; based on [Twilio.com blogpost](https://www.twilio.com/blog/insights-metrics-inform-paste-design-system).
+Collect usage statistics for any npm package exposing React UI components, across a GitHub organization.
+Inspired by [Twilio.com blogpost](https://www.twilio.com/blog/insights-metrics-inform-paste-design-system).
 
 ## Purpose
 
@@ -23,7 +24,7 @@ A GitHub [personal access token](https://docs.github.com/en/authentication/keepi
 Usage for `pkgName` will be analyzed across `org`, excluding repositories that did not receive any commit in the last `daysUntilStale` days.
 Be patient, this will take some time.
 
-The list of repositories having `pkgName` as dependency is collected through the [**components-stats**](https://github.com/Jimdo/components-stats) npm module.
+The list of repositories having `pkgName` as dependency is collected through the [**package-adoption**](https://github.com/Jimdo/package-adoption) npm module.
 
 Omit `components` to report all components.
 
