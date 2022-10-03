@@ -1,6 +1,5 @@
 // Inspired by https://www.twilio.com/blog/insights-metrics-inform-paste-design-system
-
-import { exec, rm } from 'shelljs';
+import { rm } from 'shelljs';
 import fs from 'fs';
 import {
   getFilteredReposWithPackageForOrg,
@@ -8,9 +7,9 @@ import {
 } from 'package-adoption';
 import { cloneReposList } from './cloneReposList';
 import { buildScannerConfig } from './buildScannerConfig';
+import scanner from 'react-scanner';
 import {
   PKG_ADOPTION_REPORT,
-  REACT_SCANNER_CONFIG,
   REPORTS_OUTPUT_DIR_PREFIX,
   REPOS_LOCAL_DIR,
 } from './constants';
@@ -62,11 +61,7 @@ const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;
         components
       );
 
-      fs.writeFileSync(
-        REACT_SCANNER_CONFIG,
-        `module.exports = ${JSON.stringify(scannerConfig)}`
-      );
-      exec(`npx react-scanner -c ${REACT_SCANNER_CONFIG}`);
+      scanner.run(scannerConfig);
     }
   }
 })().catch(err => {
