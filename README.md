@@ -50,10 +50,10 @@ The script outputs:
 
 [build-img]: https://github.com/jimdo/components-stats/actions/workflows/release.yml/badge.svg
 [build-url]: https://github.com/jimdo/components-stats/actions/workflows/release.yml
-[downloads-img]: https://img.shields.io/npm/dt/components-stats
-[downloads-url]: https://www.npmtrends.com/components-stats
-[npm-img]: https://img.shields.io/npm/v/components-stats
-[npm-url]: https://www.npmjs.com/package/components-stats
+[downloads-img]: https://img.shields.io/npm/dt/@jimdo/components-stats
+[downloads-url]: https://www.npmtrends.com/@jimdo/components-stats
+[npm-img]: https://img.shields.io/npm/v/@jimdo/components-stats
+[npm-url]: https://www.npmjs.com/package/@jimdo/components-stats
 [issues-img]: https://img.shields.io/github/issues/jimdo/components-stats
 [issues-url]: https://github.com/jimdo/components-stats/issues
 [semantic-release-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
