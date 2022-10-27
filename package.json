@@ -1,6 +1,6 @@
 {
   "name": "@jimdo/components-stats",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Collect stats about ui components usage across the specified GitHub org",
   "main": "./build/index.js",
   "files": [
