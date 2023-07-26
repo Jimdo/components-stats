@@ -58,7 +58,7 @@
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@semantic-release/git": "^10.0.1",
     "@types/jest": "^27.5.2",
-    "@types/node": "^18.15.1",
+    "@types/node": "^20.4.5",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
     "conventional-changelog-conventionalcommits": "^5.0.0",
