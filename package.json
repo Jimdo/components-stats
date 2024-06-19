@@ -26,9 +26,6 @@
   "author": {
     "name": "Stefania Mellai"
   },
-  "engines": {
-    "node": ">=12.0"
-  },
   "keywords": [
     "library",
     "adoption",
@@ -58,21 +55,21 @@
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@semantic-release/git": "^10.0.1",
     "@types/jest": "^27.5.2",
-    "@types/node": "^18.15.1",
+    "@types/node": "^20.14.5",
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
-    "conventional-changelog-conventionalcommits": "^5.0.0",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.7.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "husky": "^8.0.3",
+    "husky": "^9.0.11",
     "jest": "^27.2.0",
-    "lint-staged": "^13.2.0",
+    "lint-staged": "^15.2.7",
     "prettier": "^2.8.8",
     "semantic-release": "^21.0.0",
     "ts-jest": "^27.0.5",
-    "ts-node": "^10.2.1",
+    "ts-node": "^10.9.2",
     "typescript": "^4.9.5"
   },
   "config": {
@@ -136,5 +133,11 @@
       ],
       "@semantic-release/github"
     ]
+  },
+  "volta": {
+    "node": "20.11.0"
+  },
+  "engines": {
+    "node": ">= 20.11.0"
   }
 }
