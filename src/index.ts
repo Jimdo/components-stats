@@ -1,27 +1,26 @@
 // Inspired by https://www.twilio.com/blog/insights-metrics-inform-paste-design-system
-import { rm } from 'shelljs';
+import shelljsPkg from 'shelljs';
+const { rm } = shelljsPkg;
+
 import fs from 'fs';
 import {
   getFilteredReposWithPackageForOrg,
   RelevantRepo,
 } from 'package-adoption';
-import { cloneReposList } from './cloneReposList';
-import { buildScannerConfig } from './buildScannerConfig';
+import { cloneReposList } from './cloneReposList.js';
+import { buildScannerConfig } from './buildScannerConfig.js';
 import scanner from 'react-scanner';
 import {
   PKG_ADOPTION_REPORT,
   REPORTS_OUTPUT_DIR_PREFIX,
   REPOS_LOCAL_DIR,
-} from './constants';
+} from './constants.js';
 import { LocalConfig } from './types';
 
-const {
-  org,
-  pkgName,
-  ghAuthToken,
-  daysUntilStale,
-  components,
-}: LocalConfig = require('../config');
+// This need to change, we risk to expose the auth token
+const configFile = fs.readFileSync('config.json', 'utf-8');
+const { org, pkgName, ghAuthToken, daysUntilStale, components }: LocalConfig =
+  JSON.parse(configFile);
 
 const stanitizedPkgName = pkgName.replaceAll('/', '_');
 const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;

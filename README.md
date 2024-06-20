@@ -17,7 +17,7 @@ This tool will facilitate things such as: deprecation of unused components and p
 
 ## Compiling & Running Locally
 
-Create a **config.js** file based on `config.example`.
+Create a **config.json** file based on `config.example`.
 
 A GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with scope `repo` is required, to access the `org` private repositories through GitHub APIs.
 
