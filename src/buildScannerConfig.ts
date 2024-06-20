@@ -1,6 +1,6 @@
 import path from 'path';
 import { RelevantRepo } from 'package-adoption';
-import { REPOS_LOCAL_DIR } from './constants';
+import { REPOS_LOCAL_DIR } from './constants.js';
 import { ScannerConfig } from './types';
 
 export const buildScannerConfig = (

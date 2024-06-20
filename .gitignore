@@ -1,7 +1,7 @@
 node_modules
 reports_by_repo*
 repositories
-config.js
+config.json
 build
 pkgAdoption.json
 *yalc*
