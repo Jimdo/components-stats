@@ -5,7 +5,6 @@
 [![Downloads][downloads-img]][downloads-url]
 [![Issues][issues-img]][issues-url]
 [![Commitizen Friendly][commitizen-img]][commitizen-url]
-[![Semantic Release][semantic-release-img]][semantic-release-url]
 
 Collect usage statistics for any npm package exposing React UI components, across a GitHub organization.
 Inspired by [Twilio.com blogpost](https://www.twilio.com/blog/insights-metrics-inform-paste-design-system).
@@ -17,7 +16,7 @@ This tool will facilitate things such as: deprecation of unused components and p
 
 ## Compiling & Running Locally
 
-Create a **config.js** file based on `config.example`.
+Create a **config.json** file based on `config.example`.
 
 A GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with scope `repo` is required, to access the `org` private repositories through GitHub APIs.
 
@@ -56,7 +55,5 @@ The script outputs:
 [npm-url]: https://www.npmjs.com/package/@jimdo/components-stats
 [issues-img]: https://img.shields.io/github/issues/jimdo/components-stats
 [issues-url]: https://github.com/jimdo/components-stats/issues
-[semantic-release-img]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-[semantic-release-url]: https://github.com/semantic-release/semantic-release
 [commitizen-img]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: http://commitizen.github.io/cz-cli/

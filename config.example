@@ -1,7 +1,7 @@
-module.exports = {
-  org: 'github_org_name',
-  daysUntilStale: 730,
-  ghAuthToken: 'github_auth_token',
-  pkgName: '@org/package',
-  components: {Accordion: true, Button: true}
+{
+  "org": "github_org_name",
+  "daysUntilStale": 730,
+  "ghAuthToken": "github_auth_token",
+  "pkgName": "@org/package",
+  "components": {"Accordion": true, "Button": true}
 };
