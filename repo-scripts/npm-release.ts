@@ -13,7 +13,9 @@ const checkedPackageJson = childProcess.spawnSync('npm', [
 ]);
 
 if (checkedPackageJson.stdout.toString() !== '') {
-  console.log('Package version already exists in npm registry - skip release');
+  console.log(
+    '\nPackage version already exists in npm registry - skip release'
+  );
   process.exit(0);
 }
 
@@ -43,6 +45,6 @@ const tag =
               : '';
 
 console.log(
-  `Publishing ${packageJson.name}@${packageJson.version} with tag ${tag}`
+  `\n[Success] - Publishing ${packageJson.name}@${packageJson.version} with tag ${tag}`
 );
 childProcess.execSync(`npm publish --tag ${tag}`);
