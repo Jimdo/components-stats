@@ -1,6 +1,6 @@
 {
   "name": "@jimdo/components-stats",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Collect stats about ui components usage across the specified GitHub org",
   "main": "./build/index.js",
   "type": "module",
@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "clean": "rm -rf ./build/",
-    "start": "npm run clean && npm run build && node build/index.js",
+    "start": "npm run clean && npm run build && node build/run.js",
     "build": "tsc --project tsconfig.build.json",
     "cm": "cz",
     "lint": "eslint ./src/ --fix",

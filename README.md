@@ -47,6 +47,28 @@ The script outputs:
 - two `reports_by_repo` folders with one `scanner-report_[repo_name_subdir].json` file for each repository. Each file is a report with the usage of React components exposed by the `pkgName` library.
   [react-scanner](https://github.com/moroshko/react-scanner) is used to produce two kind of reports: one with the [count-components-and-props](https://www.npmjs.com/package/react-scanner#count-components-and-props) processor and one with the [raw-report](https://www.npmjs.com/package/react-scanner#raw-report) processor, reporting all the props values.
 
+## Install
+
+```bash
+npm install @jimdo/components-stats
+```
+
+## Usage
+
+```ts
+import { scanOrg } from '@jimdo/components-stats';
+
+const config = {
+  org: 'github_org_name',
+  pkgName: '@org/package',
+  ghAuthToken: 'github_auth_token',
+  daysUntilStale: '730',
+  components: { Accordion: true, Button: true },
+};
+
+await scanOrg(config);
+```
+
 [build-img]: https://github.com/jimdo/components-stats/actions/workflows/release.yml/badge.svg
 [build-url]: https://github.com/jimdo/components-stats/actions/workflows/release.yml
 [downloads-img]: https://img.shields.io/npm/dt/@jimdo/components-stats

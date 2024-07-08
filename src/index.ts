@@ -1,4 +1,3 @@
-// Inspired by https://www.twilio.com/blog/insights-metrics-inform-paste-design-system
 import shelljsPkg from 'shelljs';
 const { rm } = shelljsPkg;
 
@@ -17,21 +16,19 @@ import {
 } from './constants.js';
 import { LocalConfig } from './types';
 
-// This need to change, we risk to expose the auth token
-const configFile = fs.readFileSync('config.json', 'utf-8');
-const { org, pkgName, ghAuthToken, daysUntilStale, components }: LocalConfig =
-  JSON.parse(configFile);
+/*
+ *   1. It is using the `getFilteredReposWithPackageForOrg` function from package-adoption to get a list of relevant repos.
+ *   2. It is cloning the relevant repos to a local directory.
+ *   3. It is using the `react-scanner` package to scan the relevant repos for components usage.
+ *   4. It is saving the results to a file.
+ */
+export const scanOrg = async (config: LocalConfig) => {
+  const { org, pkgName, ghAuthToken, daysUntilStale, components }: LocalConfig =
+    config;
 
-const stanitizedPkgName = pkgName.replaceAll('/', '_');
-const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;
+  const stanitizedPkgName = pkgName.replaceAll('/', '_');
+  const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;
 
-(async () => {
-  /* 
-    1. It is using the `getFilteredReposWithPackageForOrg` function to get a list of relevant repos.
-    2. It is cloning the relevant repos to a local directory.
-    3. It is using the `react-scanner` package to scan the relevant repos for components usage.
-    4. It is saving the results to a file. 
-  */
   const relevantRepos: RelevantRepo[] | undefined =
     await getFilteredReposWithPackageForOrg({
       org,
@@ -63,6 +60,4 @@ const reportsOutputDir = `${REPORTS_OUTPUT_DIR_PREFIX}${stanitizedPkgName}`;
       scanner.run(scannerConfig);
     }
   }
-})().catch(err => {
-  console.error(err);
-});
+};
