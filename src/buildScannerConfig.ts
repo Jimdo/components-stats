@@ -29,6 +29,10 @@ export const buildScannerConfig = (
         'count-components-and-props',
         { outputTo: path.join(reportsOutputDir, reportFileName) },
       ],
+      [
+        'raw-report',
+        { outputTo: path.join(`${reportsOutputDir}-raw`, reportFileName) },
+      ],
     ],
     components,
   };

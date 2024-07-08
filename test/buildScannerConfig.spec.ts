@@ -27,6 +27,15 @@ const expectedOutputNoComponents = {
         ),
       },
     ],
+    [
+      'raw-report',
+      {
+        outputTo: path.join(
+          `${reportsOutputDir}-raw`,
+          `scanner-report_${relevantRepo.name}.json`
+        ),
+      },
+    ],
   ],
 };
 
@@ -69,6 +78,15 @@ describe('buildScannerConfig', () => {
           {
             outputTo: path.join(
               reportsOutputDir,
+              `scanner-report_${relevantRepoWithSubdirInstallation.name}_${relevantRepoWithSubdirInstallation.installationPath}.json`
+            ),
+          },
+        ],
+        [
+          'raw-report',
+          {
+            outputTo: path.join(
+              `${reportsOutputDir}-raw`,
               `scanner-report_${relevantRepoWithSubdirInstallation.name}_${relevantRepoWithSubdirInstallation.installationPath}.json`
             ),
           },

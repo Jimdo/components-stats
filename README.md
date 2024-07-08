@@ -44,8 +44,8 @@ The script outputs:
 
 - a `pkgAdoption.json` file with the list of repositories that include `pkgName` as a dependency.
 
-- a `reports_by_repo` folder with one `scanner-report_[repo_name_subdir].json` file for each repository. Each file is a report with the usage of React components exposed by the `pkgName` library.
-  [react-scanner](https://github.com/moroshko/react-scanner) is used to produce the report.
+- two `reports_by_repo` folders with one `scanner-report_[repo_name_subdir].json` file for each repository. Each file is a report with the usage of React components exposed by the `pkgName` library.
+  [react-scanner](https://github.com/moroshko/react-scanner) is used to produce two kind of reports: one with the [count-components-and-props](https://www.npmjs.com/package/react-scanner#count-components-and-props) processor and one with the [raw-report](https://www.npmjs.com/package/react-scanner#raw-report) processor, reporting all the props values.
 
 [build-img]: https://github.com/jimdo/components-stats/actions/workflows/release.yml/badge.svg
 [build-url]: https://github.com/jimdo/components-stats/actions/workflows/release.yml
