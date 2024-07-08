@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "clean": "rm -rf ./build/",
-    "start": "npm run clean && npm run build && node build/index.js",
+    "start": "npm run clean && npm run build && node build/run.js",
     "build": "tsc --project tsconfig.build.json",
     "cm": "cz",
     "lint": "eslint ./src/ --fix",
