@@ -27,7 +27,8 @@ The list of repositories having `pkgName` as dependency is collected through the
 
 Omit `components` to report all components.
 
-> :warning: The script will clone all the eligible repositories locally and use them as source for [react-scanner](https://github.com/moroshko/react-scanner). If a repository already exists locally, it will update it with a `git pull`.
+> [!WARNING]
+> The script will clone all the eligible repositories locally and use them as source for [react-scanner](https://github.com/moroshko/react-scanner). If a repository already exists locally, it will update it with a `git pull`.
 
 ```bash
 
