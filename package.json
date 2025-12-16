@@ -48,7 +48,7 @@
   },
   "homepage": "https://github.com/Jimdo/components-stats#readme",
   "dependencies": {
-    "@types/shelljs": "^0.8.17",
+    "@types/shelljs": "^0.10.0",
     "package-adoption": "2.0.1",
     "react-scanner": "^1.2.0",
     "shelljs": "^0.10.0"
