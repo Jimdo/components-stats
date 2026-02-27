@@ -57,7 +57,7 @@
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@types/jest": "^29.5.14",
-    "@types/node": "^24.10.2",
+    "@types/node": "^25.3.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "lint-staged": "^16.2.7",
