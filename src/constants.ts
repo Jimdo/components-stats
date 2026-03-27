@@ -1,5 +1,5 @@
-import { cwd } from 'process';
 import path from 'path';
+import { cwd } from 'process';
 
 const currentLocation = cwd();
 

@@ -1,5 +1,5 @@
-import path from 'path';
 import { RelevantRepo } from 'package-adoption';
+import path from 'path';
 import { REPOS_LOCAL_DIR } from './constants.js';
 import { ScannerConfig } from './types';
 

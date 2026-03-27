@@ -16,8 +16,8 @@
     "prepare": "husky install",
     "semantic-release": "node --loader ts-node/esm ./repo-scripts/npm-release.ts",
     "postversion": "node --loader ts-node/esm ./repo-scripts/npm-postVersion.ts",
-    "test:watch": "jest --watch",
-    "test": "jest --coverage --passWithNoTests",
+    "test:watch": "vitest",
+    "test": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
   "repository": {
@@ -56,14 +56,14 @@
     "@biomejs/biome": "^2.4.8",
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
-    "@types/jest": "^29.5.14",
     "@types/node": "^24.10.2",
+    "@vitest/coverage-v8": "^3.0.0",
     "husky": "^9.1.7",
-    "jest": "^29.7.0",
     "lint-staged": "^16.4.0",
-    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.3"
+    "type-fest": "^5.5.0",
+    "typescript": "^6.0.2",
+    "vitest": "^3.0.0"
   },
   "config": {
     "commitizen": {

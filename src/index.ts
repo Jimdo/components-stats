@@ -1,4 +1,5 @@
 import shelljsPkg from 'shelljs';
+
 const { rm } = shelljsPkg;
 
 import fs from 'fs';
@@ -6,9 +7,9 @@ import {
   getFilteredReposWithPackageForOrg,
   RelevantRepo,
 } from 'package-adoption';
-import { cloneReposList } from './cloneReposList.js';
-import { buildScannerConfig } from './buildScannerConfig.js';
 import scanner from 'react-scanner';
+import { buildScannerConfig } from './buildScannerConfig.js';
+import { cloneReposList } from './cloneReposList.js';
 import {
   PKG_ADOPTION_REPORT,
   REPORTS_OUTPUT_DIR_PREFIX,

@@ -1,6 +1,7 @@
+import path from 'path';
+import { describe, expect, it } from 'vitest';
 import { buildScannerConfig } from '../src/buildScannerConfig';
 import { REPORTS_OUTPUT_DIR_PREFIX, REPOS_LOCAL_DIR } from '../src/constants';
-import path from 'path';
 
 const relevantRepo = {
   name: 'repoName',
