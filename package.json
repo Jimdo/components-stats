@@ -1,6 +1,6 @@
 {
   "name": "@jimdo/components-stats",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "Collect stats about ui components usage across the specified GitHub org",
   "main": "./build/index.js",
   "type": "module",
@@ -57,13 +57,13 @@
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@types/node": "^24.10.2",
-    "@vitest/coverage-v8": "^3.0.0",
+    "@vitest/coverage-v8": "^4.1.2",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
     "ts-node": "^10.9.2",
     "type-fest": "^5.5.0",
     "typescript": "^6.0.2",
-    "vitest": "^3.0.0"
+    "vitest": "^4.1.2"
   },
   "config": {
     "commitizen": {
@@ -74,9 +74,9 @@
     "*.ts": "biome check --write"
   },
   "volta": {
-    "node": "20.11.0"
+    "node": "24.14.1"
   },
   "engines": {
-    "node": ">= 20.11.0"
+    "node": ">= 24.14.1"
   }
 }
