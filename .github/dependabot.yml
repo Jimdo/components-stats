@@ -14,3 +14,11 @@ updates:
       include: 'scope'
     cooldown:
       default-days: 3
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+      time: "09:00"
+      timezone: "Europe/Berlin"
+    cooldown:
+      default-days: 3
