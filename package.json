@@ -78,5 +78,10 @@
   },
   "engines": {
     "node": ">= 24.14.1"
+  },
+  "overrides": {
+    "react-scanner": {
+      "picomatch": "^2.3.2"
+    }
   }
 }
