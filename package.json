@@ -59,7 +59,7 @@
     "@types/node": "^24.10.2",
     "@vitest/coverage-v8": "^4.1.10",
     "husky": "^9.1.7",
-    "lint-staged": "^17.1.0",
+    "lint-staged": "^17.2.0",
     "ts-node": "^10.9.2",
     "type-fest": "^5.8.0",
     "typescript": "^6.0.3",
