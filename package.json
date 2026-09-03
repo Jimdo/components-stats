@@ -14,8 +14,8 @@
     "cm": "cz",
     "check": "biome check --write ./src/",
     "prepare": "husky install",
-    "semantic-release": "node --loader ts-node/esm ./repo-scripts/npm-release.ts",
-    "postversion": "node --loader ts-node/esm ./repo-scripts/npm-postVersion.ts",
+    "semantic-release": "tsx ./repo-scripts/npm-release.ts",
+    "postversion": "tsx ./repo-scripts/npm-postVersion.ts",
     "test:watch": "vitest",
     "test": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
@@ -60,7 +60,7 @@
     "@vitest/coverage-v8": "^4.1.11",
     "husky": "^9.1.7",
     "lint-staged": "^17.4.1",
-    "ts-node": "^10.9.2",
+    "tsx": "^4.23.13",
     "type-fest": "^5.9.0",
     "typescript": "^7.0.2",
     "vitest": "^4.1.11"
