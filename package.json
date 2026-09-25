@@ -57,7 +57,7 @@
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
     "@types/node": "^26.4.0",
-    "@vitest/coverage-v8": "^5.0.0",
+    "@vitest/coverage-v8": "^5.0.1",
     "husky": "^9.1.7",
     "lint-staged": "^17.5.1",
     "tsx": "^4.23.15",
