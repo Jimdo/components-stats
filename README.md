@@ -16,11 +16,16 @@ This tool will facilitate things such as: deprecation of unused components and p
 
 ## Compiling & Running Locally
 
-Create a **config.json** file based on `config.example`.
+Create a **config.json** file from the example:
+
+```bash
+cp config.example config.json
+```
 
 A GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) with scope `repo` is required, to access the `org` private repositories through GitHub APIs.
 
 Usage for `pkgName` will be analyzed across `org`, excluding repositories that did not receive any commit in the last `daysUntilStale` days.
+Pass `daysUntilStale` as a number. Omit it to use the default of 365.
 Be patient, this will take some time.
 
 The list of repositories having `pkgName` as dependency is collected through the [**package-adoption**](https://github.com/Jimdo/package-adoption) npm module.
@@ -63,7 +68,7 @@ const config = {
   org: 'github_org_name',
   pkgName: '@org/package',
   ghAuthToken: 'github_auth_token',
-  daysUntilStale: '730',
+  daysUntilStale: 730,
   components: { Accordion: true, Button: true },
 };
 
