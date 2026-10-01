@@ -8,6 +8,12 @@ updates:
       timezone: 'Europe/Berlin'
     open-pull-requests-limit: 99
     versioning-strategy: 'increase'
+    ignore:
+      # react-scanner loads @typescript-eslint/typescript-estree, which needs
+      # the JavaScript TypeScript API. typescript@7 ships only a launcher for
+      # the native compiler, so a major bump breaks `npm start` at runtime.
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
     commit-message:
       prefix: 'fix'
       prefix-development: 'chore'
