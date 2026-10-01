@@ -9,11 +9,10 @@ updates:
     open-pull-requests-limit: 99
     versioning-strategy: 'increase'
     ignore:
-      # react-scanner loads @typescript-eslint/typescript-estree, which needs
-      # the JavaScript TypeScript API. typescript@7 ships only a launcher for
-      # the native compiler, so a major bump breaks `npm start` at runtime.
+      # Pinned to react-scanner's own typescript pin so the two dedupe into a
+      # single bundled copy. Any bump, including a patch, splits them and
+      # doubles the published tarball. Bump it when react-scanner moves.
       - dependency-name: 'typescript'
-        update-types: ['version-update:semver-major']
     commit-message:
       prefix: 'fix'
       prefix-development: 'chore'
