@@ -4,4 +4,4 @@
   "ghAuthToken": "github_auth_token",
   "pkgName": "@org/package",
   "components": {"Accordion": true, "Button": true}
-};
+}
