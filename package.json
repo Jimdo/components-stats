@@ -57,7 +57,7 @@
     "@biomejs/biome": "^2.5.14",
     "@ryansonshine/commitizen": "^4.2.8",
     "@ryansonshine/cz-conventional-changelog": "^3.3.4",
-    "@types/node": "^26.4.0",
+    "@types/node": "^26.6.4",
     "@vitest/coverage-v8": "^5.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.0",
