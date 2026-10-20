@@ -1,0 +1,22 @@
+name: Dependabot assignee
+
+on:
+  pull_request:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Assign the rotation
+        run: |
+          people=(jennifer-takagi jacklaurencegaray)
+          gh api "repos/${GITHUB_REPOSITORY}/issues/${PR_NUMBER}/assignees" \
+            -f "assignees[]=${people[$((10#$(date +%j) % ${#people[@]}))]}"
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
