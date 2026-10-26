@@ -1,8 +1,17 @@
 name: Dependabot assignee
 
+# Uses pull_request_target, not pull_request, on purpose. A pull_request run
+# triggered by Dependabot gets a token issued in Dependabot's context, and that
+# token is not exempt from the Jimdo org IP allow list, so every gh api call
+# returns 403. pull_request_target runs in base-branch context with a normal
+# Actions token.
+#
+# Do not add a checkout step to this job. pull_request_target runs with write
+# access to the base repository, so checking out the PR head would let an
+# untrusted branch run code with that access.
 on:
-  pull_request:
-    types: [opened]
+  pull_request_target:
+    types: [opened, reopened]
 
 permissions:
   issues: write
@@ -11,7 +20,7 @@ permissions:
 jobs:
   assign:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
     steps:
       - name: Assign the rotation
         run: |
