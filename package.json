@@ -74,7 +74,8 @@
     "*.ts": "biome check --write"
   },
   "volta": {
-    "node": "24.14.1"
+    "node": "24.15.0",
+    "npm": "12.1.0"
   },
   "engines": {
     "node": ">= 24.14.1"
@@ -84,5 +85,9 @@
     "react-scanner": {
       "picomatch": "^2.3.2"
     }
+  },
+  "allowScripts": {
+    "esbuild": false,
+    "fsevents": false
   }
 }
