@@ -14,6 +14,8 @@ Inspired by [Twilio.com blogpost](https://www.twilio.com/blog/insights-metrics-i
 The aim is to provide better understanding of Design System or other shared UI libraries usage across the organization.
 This tool will facilitate things such as: deprecation of unused components and props, detection of misuse, set-up of alerts.
 
+Working on this repo: see [AGENTS.md](AGENTS.md).
+
 ## Compiling & Running Locally
 
 Create a **config.json** file from the example:

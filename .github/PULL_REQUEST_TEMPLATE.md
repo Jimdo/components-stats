@@ -11,10 +11,12 @@ Write an explanation of the motivation behind this change and how it will help, 
 
 - 
 
-## Testing instructions
-<!--
-Please include detailed testing steps, explaining how to test your change.
-Keep in mind that the context that you have while working on this is not obvious for everyone.
--->
+## Verified
+<!-- What you ran and where (local, CI, preview, stage). For a dependency bump, see AGENTS.md "Before you merge a bump" for what counts in this repo. "Not tested" does not merge. -->
 
-- 
+-
+
+## Needs a human
+<!-- What a reviewer has to check by hand before merging: a consumer app, a release dry run, a prod smoke test. Write "nothing" if nothing. -->
+
+-
