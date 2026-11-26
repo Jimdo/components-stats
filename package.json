@@ -60,7 +60,7 @@
     "@types/node": "^26.6.6",
     "@vitest/coverage-v8": "^5.1.1",
     "husky": "^9.1.7",
-    "lint-staged": "^17.6.1",
+    "lint-staged": "^17.6.2",
     "tsx": "^4.23.15",
     "type-fest": "^6.0.3",
     "vitest": "^5.0.0"
