@@ -24,12 +24,6 @@ npm run check          # biome check --write ./src/ (rewrites files)
 
 The only spec is `test/buildScannerConfig.spec.ts`: it checks the react-scanner config built for a root install and for a subdirectory install, with and without a `components` filter. CI on a PR (`pr.yml`, job `build`) runs `npm ci`, `npm run build`, `npm test` and a Codecov upload; it does not run biome or `typecheck`. Required to merge on `main`: the `build` check, one approving review and signed commits (branch protection plus the repo ruleset). The husky pre-commit hook runs lint-staged (biome on staged `.ts`) and `vitest run`; `prepare-commit-msg` opens commitizen.
 
-## Not covered
-
-- `scanOrg` in `src/index.ts`, `cloneReposList.ts` (git clone and pull through shelljs) and `run.ts` (config.json parsing) have no tests. Nothing runs react-scanner or package-adoption against a real repo, locally or in CI.
-- Biome only runs in the pre-commit hook, so a commit made with the hook skipped reaches CI unlinted. CI's `npm run build` type-checks `src/` only; `test/` and `repo-scripts/` are type-checked by nothing but a manual `npm run typecheck`.
-- The published tarball (`files: build/**`, bundled react-scanner and typescript) is never inspected before `npm publish`.
-
 ## Where to be careful
 
 - `typescript` sits in `dependencies`, pinned to the exact version react-scanner 1.2.0 depends on (5.6.2 today), and both are in `bundleDependencies` so they dedupe into one bundled copy. Any bump, even a patch, splits them into two copies and doubles the tarball. `dependabot.yml` ignores `typescript` for this reason. Move it only when react-scanner moves, and to the version react-scanner pins.
